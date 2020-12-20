@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.datahub.mybatis.mapper.CarOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.datahub.domain.CarOrder" >
+    <result column="order_id" property="orderId" jdbcType="VARCHAR" />
+    <result column="ent_code" property="entCode" jdbcType="VARCHAR" />
+    <result column="app_code" property="appCode" jdbcType="VARCHAR" />
+    <result column="city_name" property="cityName" jdbcType="VARCHAR" />
+    <result column="city_code" property="cityCode" jdbcType="VARCHAR" />
+    <result column="place_code" property="placeCode" jdbcType="VARCHAR" />
+    <result column="order_type" property="orderType" jdbcType="TINYINT" />
+    <result column="departure_lat" property="departureLat" jdbcType="VARCHAR" />
+    <result column="departure_lng" property="departureLng" jdbcType="VARCHAR" />
+    <result column="arrival_lat" property="arrivalLat" jdbcType="VARCHAR" />
+    <result column="arrival_lng" property="arrivalLng" jdbcType="VARCHAR" />
+    <result column="ordered_at" property="orderedAt" jdbcType="TIMESTAMP" />
+    <result column="use_time" property="useTime" jdbcType="TIMESTAMP" />
+    <result column="caller_phone" property="callerPhone" jdbcType="VARCHAR" />
+    <result column="caller_name" property="callerName" jdbcType="VARCHAR" />
+    <result column="departure_address" property="departureAddress" jdbcType="VARCHAR" />
+    <result column="arrival_address" property="arrivalAddress" jdbcType="VARCHAR" />
+    <result column="departure_time" property="departureTime" jdbcType="TIMESTAMP" />
+    <result column="arrival_time" property="arrivalTime" jdbcType="TIMESTAMP" />
+    <result column="begin_charge_time" property="beginChargeTime" jdbcType="TIMESTAMP" />
+    <result column="car_type" property="carType" jdbcType="VARCHAR" />
+    <result column="pay_type" property="payType" jdbcType="VARCHAR" />
+    <result column="order_status" property="orderStatus" jdbcType="VARCHAR" />
+    <result column="pay_time" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="total_distance" property="totalDistance" jdbcType="DECIMAL" />
+    <result column="total_duration" property="totalDuration" jdbcType="INTEGER" />
+    <result column="total_price" property="totalPrice" jdbcType="DECIMAL" />
+    <result column="currency" property="currency" jdbcType="VARCHAR" />
+    <result column="actual_price" property="actualPrice" jdbcType="DECIMAL" />
+    <result column="coupon_pay" property="couponPay" jdbcType="DECIMAL" />
+    <result column="refund_price" property="refundPrice" jdbcType="DECIMAL" />
+    <result column="corp_pay" property="corpPay" jdbcType="DECIMAL" />
+    <result column="personal_pay" property="personalPay" jdbcType="DECIMAL" />
+    <result column="corp_real_pay" property="corpRealPay" jdbcType="DECIMAL" />
+    <result column="personal_real_pay" property="personalRealPay" jdbcType="DECIMAL" />
+    <result column="corp_real_refund" property="corpRealRefund" jdbcType="DECIMAL" />
+    <result column="personal_real_refund" property="personalRealRefund" jdbcType="DECIMAL" />
+    <result column="order_detail" property="orderDetail" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="cost_center_id" property="costCenterId" jdbcType="VARCHAR" />
+    <result column="rule_id" property="ruleId" jdbcType="VARCHAR" />
+    <result column="apply_invoice_count" property="applyInvoiceCount" jdbcType="TINYINT" />
+    <result column="invoice_status" property="invoiceStatus" jdbcType="VARCHAR" />
+    <result column="invoice_id" property="invoiceId" jdbcType="VARCHAR" />
+    <result column="approval_id" property="approvalId" jdbcType="VARCHAR" />
+    <result column="pre_fee_code" property="preFeeCode" jdbcType="VARCHAR" />
+    <result column="subsidiary_code" property="subsidiaryCode" jdbcType="VARCHAR" />
+    <result column="department_code" property="departmentCode" jdbcType="VARCHAR" />
+    <result column="pre_consume_code" property="preConsumeCode" jdbcType="VARCHAR" />
+    <result column="pre_consume_data_code" property="preConsumeDataCode" jdbcType="VARCHAR" />
+    <result column="pre_consume_status" property="preConsumeStatus" jdbcType="VARCHAR" />
+    <result column="corp_fee_code" property="corpFeeCode" jdbcType="VARCHAR" />
+    <result column="corp_reimburse_code" property="corpReimburseCode" jdbcType="VARCHAR" />
+    <result column="corp_reimburse_data_code" property="corpReimburseDataCode" jdbcType="VARCHAR" />
+    <result column="corp_reimburse_status" property="corpReimburseStatus" jdbcType="VARCHAR" />
+    <result column="corp_settled_status" property="corpSettledStatus" jdbcType="VARCHAR" />
+    <result column="corp_settled_time" property="corpSettledTime" jdbcType="TIMESTAMP" />
+    <result column="personal_fee_code" property="personalFeeCode" jdbcType="VARCHAR" />
+    <result column="personal_reimburse_code" property="personalReimburseCode" jdbcType="VARCHAR" />
+    <result column="personal_reimburse_data_code" property="personalReimburseDataCode" jdbcType="VARCHAR" />
+    <result column="personal_reimburse_status" property="personalReimburseStatus" jdbcType="VARCHAR" />
+    <result column="personal_settled_status" property="personalSettledStatus" jdbcType="VARCHAR" />
+    <result column="personal_settled_time" property="personalSettledTime" jdbcType="TIMESTAMP" />
+    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
+    <result column="reconcile_bill_code" property="reconcileBillCode" jdbcType="VARCHAR" />
+    <result column="caller_employee_code" property="callerEmployeeCode" jdbcType="VARCHAR" />
+    <result column="caller_source_id" property="callerSourceId" jdbcType="VARCHAR" />
+    <result column="car_type_source_name" property="carTypeSourceName" jdbcType="VARCHAR" />
+    <result column="car_type_source_name_en" property="carTypeSourceNameEn" jdbcType="VARCHAR" />
+    <result column="settlement_batch_no" property="settlementBatchNo" jdbcType="VARCHAR" />
+    <result column="sub_settlement_batch_no" property="subSettlementBatchNo" jdbcType="VARCHAR" />
+    <result column="caller_external_employee_code" property="callerExternalEmployeeCode" jdbcType="VARCHAR" />
+    <result column="passenger" property="passenger" typeHandler="com.datahub.mybatis.handler.PersonInfoHandler" javaType="com.datahub.domain.PersonInfo"/>
+    <result column="is_manual_pull" property="isManualPull" jdbcType="BIT" />
+<!--    <result column="brief_notes" property="briefNotes" jdbcType="text" />-->
+  </resultMap>
+  <select id="getCarOrderCount" resultType="java.lang.Long">
+    select count(1)
+    from car_order
+    where ent_code = #{entCode,javaType=string}
+      and date(ordered_at) between #{startAt} and #{endAt}
+       or is_manual_pull = #{manualPull,javaType=boolean};
+  </select>
+  <select id="getCarOrder" resultType="com.datahub.domain.CarOrder">
+    select * from car_order
+    where ent_code = #{entCode,javaType=string} and order_id = #{operationId,javaType=string};
+  </select>
+</mapper>

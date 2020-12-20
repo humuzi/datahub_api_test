@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.datahub.mybatis.mapper.TrainOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.datahub.domain.TrainOrder" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="app_code" property="appCode" jdbcType="VARCHAR" />
+    <result column="ent_code" property="entCode" jdbcType="VARCHAR" />
+    <result column="corp_code" property="corpCode" jdbcType="VARCHAR" />
+    <result column="corp_account_code" property="corpAccountCode" jdbcType="VARCHAR" />
+    <result column="order_id" property="orderId" jdbcType="VARCHAR" />
+    <result column="original_order_id" property="originalOrderId" jdbcType="VARCHAR" />
+    <result column="operation_id" property="operationId" jdbcType="VARCHAR" />
+    <result column="original_operation_id" property="originalOperationId" jdbcType="VARCHAR" />
+    <result column="approval_no" property="approvalNo" jdbcType="VARCHAR" />
+    <result column="external_approval_no" property="externalApprovalNo" jdbcType="VARCHAR" />
+    <result column="employee_code" property="employeeCode" jdbcType="VARCHAR" />
+    <result column="external_employee_code" property="externalEmployeeCode" jdbcType="VARCHAR" />
+    <result column="employee_source_id" property="employeeSourceId" jdbcType="VARCHAR" />
+    <result column="employee_id" property="employeeId" jdbcType="VARCHAR" />
+    <result column="employee_name" property="employeeName" jdbcType="VARCHAR" />
+    <result column="external_employee_name" property="externalEmployeeName" jdbcType="VARCHAR" />
+    <result column="ordered_at" property="orderedAt" jdbcType="TIMESTAMP" />
+    <result column="operated_at" property="operatedAt" jdbcType="TIMESTAMP" />
+    <result column="paid_at" property="paidAt" jdbcType="TIMESTAMP" />
+    <result column="incompatible_reason" property="incompatibleReason" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="order_status" property="orderStatus" jdbcType="VARCHAR" />
+    <result column="audit_status" property="auditStatus" jdbcType="VARCHAR" />
+    <result column="business_purpose" property="businessPurpose" jdbcType="BIT" />
+    <result column="pay_type" property="payType" jdbcType="VARCHAR" />
+    <result column="total_fee" property="totalFee" jdbcType="DECIMAL" />
+    <result column="corp_pay_fee" property="corpPayFee" jdbcType="DECIMAL" />
+    <result column="personal_pay_fee" property="personalPayFee" jdbcType="DECIMAL" />
+    <result column="delivery_fee" property="deliveryFee" jdbcType="DECIMAL" />
+    <result column="insurance_fee" property="insuranceFee" jdbcType="DECIMAL" />
+    <result column="total_tax_fee" property="totalTaxFee" jdbcType="DECIMAL" />
+    <result column="deductible_tax_fee" property="deductibleTaxFee" jdbcType="DECIMAL" />
+    <result column="non_deductible_tax_fee" property="nonDeductibleTaxFee" jdbcType="DECIMAL" />
+    <result column="extra_service_fee" property="extraServiceFee" jdbcType="DECIMAL" />
+    <result column="change_fee" property="changeFee" jdbcType="DECIMAL" />
+    <result column="change_service_fee" property="changeServiceFee" jdbcType="DECIMAL" />
+    <result column="refund_fee" property="refundFee" jdbcType="DECIMAL" />
+    <result column="refund_service_fee" property="refundServiceFee" jdbcType="DECIMAL" />
+    <result column="currency" property="currency" jdbcType="VARCHAR" />
+    <result column="is_online" property="isOnline" jdbcType="BIT" />
+    <result column="subsidiary_code" property="subsidiaryCode" jdbcType="VARCHAR" />
+    <result column="department_code" property="departmentCode" jdbcType="VARCHAR" />
+    <result column="pre_consume_code" property="preConsumeCode" jdbcType="VARCHAR" />
+    <result column="pre_consume_data_code" property="preConsumeDataCode" jdbcType="VARCHAR" />
+    <result column="pre_consume_status" property="preConsumeStatus" jdbcType="VARCHAR" />
+    <result column="corp_fee_code" property="corpFeeCode" jdbcType="VARCHAR" />
+    <result column="corp_reimburse_code" property="corpReimburseCode" jdbcType="VARCHAR" />
+    <result column="corp_reimburse_data_code" property="corpReimburseDataCode" jdbcType="VARCHAR" />
+    <result column="corp_reimburse_status" property="corpReimburseStatus" jdbcType="VARCHAR" />
+    <result column="corp_settled_status" property="corpSettledStatus" jdbcType="VARCHAR" />
+    <result column="corp_settled_at" property="corpSettledAt" jdbcType="TIMESTAMP" />
+    <result column="personal_fee_code" property="personalFeeCode" jdbcType="VARCHAR" />
+    <result column="personal_reimburse_code" property="personalReimburseCode" jdbcType="VARCHAR" />
+    <result column="personal_reimburse_data_code" property="personalReimburseDataCode" jdbcType="VARCHAR" />
+    <result column="personal_reimburse_status" property="personalReimburseStatus" jdbcType="VARCHAR" />
+    <result column="personal_settled_status" property="personalSettledStatus" jdbcType="VARCHAR" />
+    <result column="personal_settled_at" property="personalSettledAt" jdbcType="TIMESTAMP" />
+    <result column="reconcile_bill_code" property="reconcileBillCode" jdbcType="VARCHAR" />
+    <result column="settlement_batch_no" property="settlementBatchNo" jdbcType="VARCHAR" />
+    <result column="sub_settlement_batch_no" property="subSettlementBatchNo" jdbcType="VARCHAR" />
+    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
+    <result column="service_fee" property="serviceFee" jdbcType="DECIMAL" />
+    <result column="order_type" property="orderType" jdbcType="VARCHAR" />
+    <result column="external_department_name" property="externalDepartmentName" jdbcType="VARCHAR" />
+    <result column="approver" property="approver" typeHandler="com.datahub.mybatis.handler.PersonInfoHandler" />
+    <result column="approver2" property="approver2" typeHandler="com.datahub.mybatis.handler.PersonInfoHandler" />
+    <result column="is_manual_pull" property="isManualPull" jdbcType="BIT" />
+    <result column="invoice_id" property="invoiceId" jdbcType="VARCHAR" />
+    <result column="brief_notes" property="briefNotes" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <select id="getTrainOrderCount" resultType="long">
+    select count(1)
+    from train_order
+    where ent_code = #{entCode,javaType=String}
+      and date(ordered_at) between #{startAt,javaType=String} and #{endAt,javaType=String}
+       or is_manual_pull = #{manualPull};
+  </select>
+
+  <select id="getTrainOrderList" resultType="com.datahub.domain.TrainOrder">
+    select *
+    from train_order
+    where ent_code = #{entCode,javaType=String}
+      and operation_id = #{operationId,javaType=String};
+  </select>
+</mapper>

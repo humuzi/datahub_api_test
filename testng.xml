@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Test suite">
+    <test name="test all">
+        <parameter name="entCode" value="EC2006301H5YODFQ"></parameter>
+        <groups>
+            <run>
+                <include name="xigua"/>
+                <exclude name="platform"/>
+                <exclude name="web"/>
+                <exclude name="mobile"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.datahub.web.steps"/>
+            <package name="com.datahub.platform.steps"/>
+        </packages>
+<!--        <classes>-->
+<!--            <class name="com.datahub.web.steps.InitStepDef"></class>-->
+<!--        </classes>-->
+    </test>
+</suite>

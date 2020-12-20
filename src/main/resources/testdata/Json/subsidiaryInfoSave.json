@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "address": "杭州市江干区白杨街道海聚中心",
+      "bankAccount": "3578254737453",
+      "bankBranchName": "中国工商银行",
+      "businessCode": "ELC201121135OGU4G",
+      "code": "ELC201121135OGU4G",
+      "departmentBusinessCodes": [],
+      "name": "大雄物业管理公司",
+      "nameEn": "",
+      "parentBusinessCode": "",
+      "phone": "0571-86705820",
+      "principalSourceId": "",
+      "source": "MAYCUR-NG",
+      "taxNo": "3725435681257834527"
+    }
+  ],
+  "timestamp": 1605929620118
+}
+
+

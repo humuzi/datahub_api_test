@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.datahub.mybatis.mapper.EntEmployeeMapper" >
+  <resultMap id="BaseResultMap" type="com.datahub.domain.EntEmployee" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="ent_code" property="entCode" jdbcType="VARCHAR" />
+    <result column="employee_code" property="employeeCode" jdbcType="VARCHAR" />
+    <result column="account_code" property="accountCode" jdbcType="VARCHAR" />
+    <result column="employee_name" property="employeeName" jdbcType="VARCHAR" />
+    <result column="employee_id" property="employeeId" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="hire_date" property="hireDate" jdbcType="DATE" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="source_id" property="sourceId" jdbcType="VARCHAR" />
+    <result column="residence_code" property="residenceCode" jdbcType="VARCHAR" />
+    <result column="business_privilege" property="businessPrivilege" jdbcType="BIGINT" />
+    <result column="default_subsidiary_code" property="defaultSubsidiaryCode" jdbcType="VARCHAR" />
+    <result column="cust_field_1" property="custField1" jdbcType="VARCHAR" />
+    <result column="cust_field_2" property="custField2" jdbcType="VARCHAR" />
+    <result column="cust_field_3" property="custField3" jdbcType="VARCHAR" />
+    <result column="cust_field_4" property="custField4" jdbcType="VARCHAR" />
+    <result column="cust_field_5" property="custField5" jdbcType="VARCHAR" />
+    <result column="cust_field_6" property="custField6" jdbcType="VARCHAR" />
+    <result column="cust_field_7" property="custField7" jdbcType="VARCHAR" />
+    <result column="cust_field_8" property="custField8" jdbcType="VARCHAR" />
+    <result column="cust_field_9" property="custField9" jdbcType="VARCHAR" />
+    <result column="cust_field_10" property="custField10" jdbcType="VARCHAR" />
+    <result column="cn_name" property="cnName" jdbcType="VARCHAR" />
+    <result column="first_name" property="firstName" jdbcType="VARCHAR" />
+    <result column="middle_name" property="middleName" jdbcType="VARCHAR" />
+    <result column="last_name" property="lastName" jdbcType="VARCHAR" />
+    <result column="nationality" property="nationality" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="DATE" />
+    <result column="identity_no" property="identityNo" jdbcType="VARCHAR" />
+    <result column="passport_no" property="passportNo" jdbcType="VARCHAR" />
+    <result column="military_officer_no" property="militaryOfficerNo" jdbcType="VARCHAR" />
+    <result column="hk_macao_pass_no" property="hkMacaoPassNo" jdbcType="VARCHAR" />
+    <result column="active" property="active" jdbcType="BIT" />
+    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.datahub.domain.EntEmployee" extends="BaseResultMap" >
+    <result column="cust_props" property="custProps" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Blob_Column_List" >
+    cust_props
+  </sql>
+  <select id="getEmployeeCount" resultType="long">
+    select count(1)
+    from ent_employee
+    where ent_code = #{entCode,javaType=string};
+  </select>
+  <select id="getEmployeeList" resultType="com.datahub.domain.EntEmployee">
+    select *
+    from ent_employee
+    where ent_code = #{entCode,javaType=string};
+  </select>
+  <select id="getEmployeeCode" resultType="java.lang.String">
+    select employee_code
+    from ent_employee
+    where ent_code = #{entCode}
+      and source_id = #{employeeSourceId};
+  </select>
+  <select id="getEmployeeDetail" resultType="com.datahub.domain.EntEmployee">
+    select *
+    from ent_employee
+    where ent_code = #{entCode,javaType=string}
+      and employee_code = #{employeeCode,javaType=string};
+  </select>
+</mapper>

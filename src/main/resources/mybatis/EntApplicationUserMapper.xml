@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.datahub.mybatis.mapper.EntApplicationUserMapper" >
+  <resultMap id="BaseResultMap" type="com.datahub.domain.EntApplicationUser" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="app_code" property="appCode" jdbcType="VARCHAR" />
+    <result column="ent_code" property="entCode" jdbcType="VARCHAR" />
+    <result column="external_corp_code" property="externalCorpCode" jdbcType="VARCHAR" />
+    <result column="external_employee_code" property="externalEmployeeCode" jdbcType="VARCHAR" />
+    <result column="employee_id" property="employeeId" jdbcType="VARCHAR" />
+    <result column="employee_name" property="employeeName" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="role" property="role" jdbcType="VARCHAR" />
+    <result column="is_active" property="isActive" jdbcType="TINYINT" />
+    <result column="department_name" property="departmentName" jdbcType="VARCHAR" />
+    <result column="cost_center" property="costCenter" jdbcType="VARCHAR" />
+    <result column="rank_name" property="rankName" jdbcType="VARCHAR" />
+    <result column="position_name" property="positionName" jdbcType="VARCHAR" />
+    <result column="prior_approval" property="priorApproval" jdbcType="TINYINT" />
+    <result column="rule_id" property="ruleId" jdbcType="VARCHAR" />
+    <result column="send_notification" property="sendNotification" jdbcType="TINYINT" />
+    <result column="book_for_employee" property="bookForEmployee" jdbcType="TINYINT" />
+    <result column="book_for_non_employee" property="bookForNonEmployee" jdbcType="TINYINT" />
+    <result column="cust_field1" property="custField1" jdbcType="VARCHAR" />
+    <result column="cust_field2" property="custField2" jdbcType="VARCHAR" />
+    <result column="cust_field3" property="custField3" jdbcType="VARCHAR" />
+    <result column="cust_field4" property="custField4" jdbcType="VARCHAR" />
+    <result column="cust_field5" property="custField5" jdbcType="VARCHAR" />
+    <result column="cust_field6" property="custField6" jdbcType="VARCHAR" />
+    <result column="cust_field7" property="custField7" jdbcType="VARCHAR" />
+    <result column="cust_field8" property="custField8" jdbcType="VARCHAR" />
+    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="employee_code" property="employeeCode" jdbcType="VARCHAR" />
+    <result column="subsidiary_name" property="subsidiaryName" jdbcType="VARCHAR" />
+    <result column="supervisor_employee_code" property="supervisorEmployeeCode" jdbcType="VARCHAR" />
+    <result column="open_id" property="openId" jdbcType="VARCHAR" />
+    <result column="supervisor_open_id" property="supervisorOpenId" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.datahub.domain.EntApplicationUser" extends="BaseResultMap" >
+    <result column="user_detail_json" property="userDetailJson" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Blob_Column_List" >
+    user_detail_json
+  </sql>
+  <select id="getAppCode" resultType="java.util.List">
+    select app_code
+    from ent_application_user
+    where ent_code = #{entCode}
+      and employee_code = #{employeeCode}
+      and is_active = 'Y';
+  </select>
+  <select id="getSyncCount" resultType="integer">
+    select count(1)
+    from ent_application_user
+    where ent_code = #{entCode}
+      and employee_name = #{employeeName}
+      and is_active = 'Y';
+  </select>
+</mapper>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--    <classPathEntry-->
+    <!--            location="/Users/Joeyxin/.m2/repository/postgresql/postgresql/9.1-901-1.jdbc4/postgresql-9.1-901-1.jdbc4.jar"/>-->
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.95.142:3306/datahub"
+                        userId="datahub_app"
+                        password="Maycur@2020">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.datahub.domain" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mybatis" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.datahub.mybatis.mapper"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+<!--        <table tableName="subsidiary_information" domainObjectName="SubsidiaryInformation" enableCountByExample="false"-->
+<!--               enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" />-->
+<!--        <table tableName="employee_role" domainObjectName="EmployeeRole" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false"/>-->
+<!--        <table tableName="flight_order" domainObjectName="FlightOrder" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false"/>-->
+<!--        <table tableName="flight_ticket" domainObjectName="FlightTicket" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false"/>-->
+<!--        <table tableName="hotel_order" domainObjectName="HotelOrder" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false">-->
+<!--            <columnOverride column="approver" javaType="java.lang.String" jdbcType="json" />-->
+<!--            <columnOverride column="approver2" javaType="java.lang.String" jdbcType="json" />-->
+<!--            <columnOverride column="clients" javaType="java.lang.String" jdbcType="json" />-->
+<!--            <columnOverride column="brief_notes" javaType="java.lang.String" jdbcType="text" />-->
+<!--            <columnOverride column="hotel_room" javaType="java.lang.String" jdbcType="text" />-->
+<!--        </table>-->
+<!--        <table tableName="car_order" domainObjectName="CarOrder" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false">-->
+<!--            <columnOverride column="passenger" javaType="java.lang.String" jdbcType="json" />-->
+<!--            <columnOverride column="brief_notes" javaType="java.lang.String" jdbcType="text" />-->
+<!--        </table>-->
+<!--        <table tableName="train_order" domainObjectName="TrainOrder" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false">-->
+<!--            <columnOverride column="approver" javaType="java.lang.String" jdbcType="json" />-->
+<!--            <columnOverride column="approver2" javaType="java.lang.String" jdbcType="json" />-->
+<!--            <columnOverride column="briefNotes" javaType="java.lang.String" jdbcType="json" />-->
+<!--        </table>-->
+<!--        <table tableName="meal_order" domainObjectName="MealOrder" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false">-->
+<!--            <columnOverride column="restaurant_info" javaType="java.lang.String" jdbcType="json" />F-->
+<!--            <columnOverride column="food_infos" javaType="java.lang.String" jdbcType="json" />-->
+<!--            <columnOverride column="briefNotes" javaType="java.lang.String" jdbcType="LONGVARCHAR" />-->
+<!--            <columnOverride column="allowance_detail" javaType="java.lang.String" jdbcType="text" />-->
+<!--            <columnOverride column="diner_employee" javaType="java.lang.String" jdbcType="text" />-->
+<!--        </table>-->
+<!--        <table tableName="train_ticket" domainObjectName="TrainTicket" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false"/>-->
+<!--        <table tableName="enterprise" domainObjectName="Enterprise" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false"/>-->
+<!--        <table tableName="department_information" domainObjectName="DepartmentInformation" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false"/>-->
+<!--        <table tableName="ent_employee" domainObjectName="EntEmployee" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false"/>-->
+<!--        <table tableName="employee_role" domainObjectName="EmployeeRole" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false"/>-->
+<!--        <table tableName="ent_application_user" domainObjectName="EntApplicationUser" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false"/>-->
+<!--        <table tableName="ent_application_info" domainObjectName="EntApplicationInfo" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false"/>-->
+<!--        <table tableName="rank_information" domainObjectName="RankInformation" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false"/>-->
+<!--        <table tableName="position_information" domainObjectName="PositionInformation" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false"/>-->
+<!--        <table tableName="ent_role" domainObjectName="EntRole" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false"/>-->
+<!--        <table tableName="role_assignment" domainObjectName="RoleAssignment" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false"/>-->
+    </context>
+</generatorConfiguration>

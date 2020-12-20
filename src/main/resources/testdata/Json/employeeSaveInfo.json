@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "active": true,
+      "cnName": "胡一笑",
+      "defaultSubsidiaryBusinessCode": "ELC201121135OGU4G",
+      "email": "",
+      "employeeId": "SA0001",
+      "employeeRoles": [
+        {
+          "role": "SYSTEM_ADMIN",
+          "visibility": "OPEN"
+        }
+      ],
+      "gender": "WOMAN",
+      "hireDate": "1970-01-01",
+      "mobile": "18200007777",
+      "name": "胡一笑",
+      "reportLines": [
+        {
+          "departmentBusinessCode": "DI200629S2XGJPX",
+          "positionBusinessCode": "PI201109E6E6OLP",
+          "rankBusinessCode": "CP201109E6E6OLL",
+          "supervisorSourceId": "UI2006291CNS1Z40"
+        },
+        {
+          "departmentBusinessCode": "DI200629S2XGJPS",
+          "positionBusinessCode": "PI200821118OBQ0V",
+          "rankBusinessCode": "CP201109E6E6OLL",
+          "supervisorSourceId": "UI2006291BNP7NK0"
+        }
+      ],
+      "residenceCode": "",
+      "source": "MAYCUR-NG",
+      "sourceId": "UI2011301WNHSI68"
+    }
+  ],
+  "timestamp": 1606739445744
+}

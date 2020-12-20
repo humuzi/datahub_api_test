@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.datahub.mybatis.mapper.DepartmentInformationMapper">
+    <resultMap id="BaseResultMap" type="com.datahub.domain.DepartmentInformation">
+        <result column="code" property="code" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="name_en" property="nameEn" jdbcType="VARCHAR"/>
+        <result column="business_code" property="businessCode" jdbcType="VARCHAR"/>
+        <result column="cost_center_code" property="costCenterCode" jdbcType="VARCHAR"/>
+        <result column="ent_code" property="entCode" jdbcType="VARCHAR"/>
+        <result column="parent_code" property="parentCode" jdbcType="VARCHAR"/>
+        <result column="parent_business_code" property="parentBusinessCode" jdbcType="VARCHAR"/>
+        <result column="heir_code" property="heirCode" jdbcType="VARCHAR"/>
+        <result column="heir_name" property="heirName" jdbcType="VARCHAR"/>
+        <result column="heir_name_en" property="heirNameEn" jdbcType="VARCHAR"/>
+        <result column="principal_employee_code" property="principalEmployeeCode" jdbcType="VARCHAR"/>
+        <result column="source" property="source" jdbcType="VARCHAR"/>
+        <result column="level" property="level" jdbcType="TINYINT"/>
+        <result column="active" property="active" jdbcType="BIT"/>
+        <result column="deleted" property="deleted" jdbcType="BIT"/>
+        <result column="created_at" property="createdAt" jdbcType="TIMESTAMP"/>
+        <result column="created_by" property="createdBy" jdbcType="VARCHAR"/>
+        <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP"/>
+        <result column="updated_by" property="updatedBy" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getFirstDepartmentInformation" resultType="com.datahub.domain.DepartmentInformation">
+        select *
+        from department_information
+        where ent_code = #{entCode,javaType=string}
+          and parent_code is null;
+    </select>
+
+    <select id="getSubDepartmentCode" resultType="java.util.List">
+        select code
+        from department_information
+        where ent_code = #{entCode,javaType=string}
+          and parent_code = #{parentDepartmentCode,javaType=string};
+    </select>
+
+    <select id="searchDepartmentByName" resultType="com.datahub.domain.DepartmentInformation">
+        select *
+        from department_information
+        where ent_code = #{entCode,javaType=string}
+          and (IF(code = code regexp '^DI', code = #{keyword,javaType=string}, name like concat ('%',#{keyword},'%'))
+            );
+    </select>
+    <select id="getDepartmentInfo" resultType="com.datahub.domain.DepartmentInformation">
+        select *
+        from department_information
+        where ent_code = #{entCode,javaType=string}
+          and business_code = #{businessCode,javaType=string};
+    </select>
+    <select id="getDepartmentCodes" resultType="java.lang.String">
+        select code from department_information where ent_code = #{entCode,javaType=string} and deleted = false;
+    </select>
+
+</mapper>

@@ -1,0 +1,21 @@
+{
+  "data": [
+    {
+      "businessCode": "DI200629S2XGJPX",
+      "costCenterCode": "Cost_1",
+      "name": "大雄财务管理公司",
+      "nameEn": "大雄财务管理公司",
+      "parentBusinessCode": "DI200629S2XGJPS",
+      "source": "MAYCUR-NG"
+    },
+    {
+      "businessCode": "DI2012081E5HE29Y",
+      "costCenterCode": "Cost_2",
+      "name": "大雄物业管理有限公司",
+      "nameEn": "大雄物业管理有限公司",
+      "parentBusinessCode": "DI200629S2XGJPX",
+      "source": "MAYCUR-NG"
+    }
+  ],
+  "timestamp": 1607411948253
+}

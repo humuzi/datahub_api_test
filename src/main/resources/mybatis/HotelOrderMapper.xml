@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.datahub.mybatis.mapper.HotelOrderMapper">
+    <resultMap id="BaseResultMap" type="com.datahub.domain.HotelOrder">
+        <result column="id" jdbcType="BIGINT" property="id"/>
+        <result column="app_code" jdbcType="VARCHAR" property="appCode"/>
+        <result column="ent_code" jdbcType="VARCHAR" property="entCode"/>
+        <result column="corp_code" jdbcType="VARCHAR" property="corpCode"/>
+        <result column="corp_account_code" jdbcType="VARCHAR" property="corpAccountCode"/>
+        <result column="order_id" jdbcType="VARCHAR" property="orderId"/>
+        <result column="original_order_id" jdbcType="VARCHAR" property="originalOrderId"/>
+        <result column="operation_id" jdbcType="VARCHAR" property="operationId"/>
+        <result column="original_operation_id" jdbcType="VARCHAR" property="originalOperationId"/>
+        <result column="approval_no" jdbcType="VARCHAR" property="approvalNo"/>
+        <result column="external_approval_no" jdbcType="VARCHAR" property="externalApprovalNo"/>
+        <result column="employee_code" jdbcType="VARCHAR" property="employeeCode"/>
+        <result column="external_employee_code" jdbcType="VARCHAR" property="externalEmployeeCode"/>
+        <result column="employee_source_id" jdbcType="VARCHAR" property="employeeSourceId"/>
+        <result column="employee_id" jdbcType="VARCHAR" property="employeeId"/>
+        <result column="employee_name" jdbcType="VARCHAR" property="employeeName"/>
+        <result column="external_employee_name" jdbcType="VARCHAR" property="externalEmployeeName"/>
+        <result column="ordered_at" jdbcType="TIMESTAMP" property="orderedAt"/>
+        <result column="operated_at" jdbcType="TIMESTAMP" property="operatedAt"/>
+        <result column="paid_at" jdbcType="TIMESTAMP" property="paidAt"/>
+        <result column="incompatible_reason" jdbcType="VARCHAR" property="incompatibleReason"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="order_status" jdbcType="VARCHAR" property="orderStatus"/>
+        <result column="audit_status" jdbcType="VARCHAR" property="auditStatus"/>
+        <result column="business_purpose" jdbcType="VARCHAR" property="businessPurpose"/>
+        <result column="pay_type" jdbcType="VARCHAR" property="payType"/>
+        <result column="pre_paid" jdbcType="BIT" property="prePaid"/>
+        <result column="total_fee" jdbcType="DECIMAL" property="totalFee"/>
+        <result column="corp_pay_fee" jdbcType="DECIMAL" property="corpPayFee"/>
+        <result column="personal_pay_fee" jdbcType="DECIMAL" property="personalPayFee"/>
+        <result column="invoice_tax_fee" jdbcType="DECIMAL" property="invoiceTaxFee"/>
+        <result column="deductible_tax_fee" jdbcType="DECIMAL" property="deductibleTaxFee"/>
+        <result column="non_deductible_tax_fee" jdbcType="DECIMAL" property="nonDeductibleTaxFee"/>
+        <result column="extra_service_fee" jdbcType="DECIMAL" property="extraServiceFee"/>
+        <result column="hotel_name" jdbcType="VARCHAR" property="hotelName"/>
+        <result column="hotel_name_en" jdbcType="VARCHAR" property="hotelNameEn"/>
+        <result column="hotel_tel" jdbcType="VARCHAR" property="hotelTel"/>
+        <result column="hotel_address" jdbcType="VARCHAR" property="hotelAddress"/>
+        <result column="hotel_star" jdbcType="VARCHAR" property="hotelStar"/>
+        <result column="hotel_type" jdbcType="VARCHAR" property="hotelType"/>
+        <result column="hotel_city_code" jdbcType="VARCHAR" property="hotelCityCode"/>
+        <result column="hotel_city_name" jdbcType="VARCHAR" property="hotelCityName"/>
+        <result column="hotel_city_name_en" jdbcType="VARCHAR" property="hotelCityNameEn"/>
+        <result column="hotel_dh_city_code" jdbcType="VARCHAR" property="hotelDhCityCode"/>
+        <result column="room_quantity" jdbcType="INTEGER" property="roomQuantity"/>
+        <result column="currency" jdbcType="VARCHAR" property="currency"/>
+        <result column="is_online" jdbcType="VARCHAR" property="isOnline"/>
+        <result column="check_in_at" jdbcType="DATE" property="checkInAt"/>
+        <result column="check_out_at" jdbcType="DATE" property="checkOutAt"/>
+        <result column="room_day_count" jdbcType="INTEGER" property="roomDayCount"/>
+        <result column="subsidiary_code" jdbcType="VARCHAR" property="subsidiaryCode"/>
+        <result column="department_code" jdbcType="VARCHAR" property="departmentCode"/>
+        <result column="pre_consume_code" jdbcType="VARCHAR" property="preConsumeCode"/>
+        <result column="pre_consume_data_code" jdbcType="VARCHAR" property="preConsumeDataCode"/>
+        <result column="pre_consume_status" jdbcType="VARCHAR" property="preConsumeStatus"/>
+        <result column="corp_fee_code" jdbcType="VARCHAR" property="corpFeeCode"/>
+        <result column="corp_reimburse_code" jdbcType="VARCHAR" property="corpReimburseCode"/>
+        <result column="corp_reimburse_data_code" jdbcType="VARCHAR" property="corpReimburseDataCode"/>
+        <result column="corp_reimburse_status" jdbcType="VARCHAR" property="corpReimburseStatus"/>
+        <result column="corp_settled_status" jdbcType="VARCHAR" property="corpSettledStatus"/>
+        <result column="corp_settled_at" jdbcType="TIMESTAMP" property="corpSettledAt"/>
+        <result column="personal_fee_code" jdbcType="VARCHAR" property="personalFeeCode"/>
+        <result column="personal_reimburse_code" jdbcType="VARCHAR" property="personalReimburseCode"/>
+        <result column="personal_reimburse_data_code" jdbcType="VARCHAR" property="personalReimburseDataCode"/>
+        <result column="personal_reimburse_status" jdbcType="VARCHAR" property="personalReimburseStatus"/>
+        <result column="personal_settled_status" jdbcType="VARCHAR" property="personalSettledStatus"/>
+        <result column="personal_settled_at" jdbcType="TIMESTAMP" property="personalSettledAt"/>
+        <result column="reconcile_bill_code" jdbcType="VARCHAR" property="reconcileBillCode"/>
+        <result column="settlement_batch_no" jdbcType="VARCHAR" property="settlementBatchNo"/>
+        <result column="sub_settlement_batch_no" jdbcType="VARCHAR" property="subSettlementBatchNo"/>
+        <result column="created_at" jdbcType="TIMESTAMP" property="createdAt"/>
+        <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt"/>
+        <result column="tax_fee" jdbcType="DECIMAL" property="taxFee"/>
+        <result column="service_fee" jdbcType="DECIMAL" property="serviceFee"/>
+        <result column="order_type" jdbcType="VARCHAR" property="orderType"/>
+        <result column="external_department_name" jdbcType="VARCHAR" property="externalDepartmentName"/>
+        <result column="approver" typeHandler="com.datahub.mybatis.handler.PersonInfoHandler" property="approver"/>
+        <result column="approver2" typeHandler="com.datahub.mybatis.handler.PersonInfoHandler" property="approver2"/>
+        <result column="clients" typeHandler="com.datahub.mybatis.handler.PersonInfoHandler" property="clients"/>
+        <result column="is_manual_pull" jdbcType="BIT" property="isManualPull"/>
+        <!--    <result column="brief_notes" jdbcType="text" property="briefNotes" />-->
+        <result column="hotel_room" typeHandler="com.datahub.mybatis.handler.HotelRoomListHandler"
+                property="hotelRoom"/>
+    </resultMap>
+    <select id="getHotelOrderCount" resultType="java.lang.Long">
+        select count(1)
+        from hotel_order
+        where ent_code = #{entCode,javaType=string}
+            and date(ordered_at) between #{startAt,javaType=string} and #{endAt,javaType=string}
+           or is_manual_pull = #{manualPull};
+    </select>
+
+    <select id="getHotelOrderByKeyword" resultType="java.lang.Integer">
+        select count(1)
+        from hotel_order
+        where ent_code = #{entCode,javaType=string}
+          and pay_type = #{payTypes,javaType=string}
+          and external_employee_name like concat('%', #{keyword}, '%')
+          and date(ordered_at) between #{startAt,javaType=string} and #{endAt,javaType=string};
+    </select>
+
+    <select id="getHotelOrder" resultType="com.datahub.domain.HotelOrder">
+        select *
+        from hotel_order
+        where ent_code = #{entCode}
+          and app_code = #{appCode,javaType=string}
+          and operation_id = #{operationId};
+    </select>
+</mapper>

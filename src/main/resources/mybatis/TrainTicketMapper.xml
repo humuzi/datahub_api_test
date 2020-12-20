@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.datahub.mybatis.mapper.TrainTicketMapper">
+    <resultMap id="BaseResultMap" type="com.datahub.domain.TrainTicket">
+        <result column="id" property="id" jdbcType="BIGINT"/>
+        <result column="ent_code" property="entCode" jdbcType="VARCHAR"/>
+        <result column="order_id" property="orderId" jdbcType="VARCHAR"/>
+        <result column="operation_id" property="operationId" jdbcType="VARCHAR"/>
+        <result column="train_no" property="trainNo" jdbcType="VARCHAR"/>
+        <result column="apply_change_at" property="applyChangeAt" jdbcType="TIMESTAMP"/>
+        <result column="changed_at" property="changedAt" jdbcType="TIMESTAMP"/>
+        <result column="refund_at" property="refundAt" jdbcType="TIMESTAMP"/>
+        <result column="departure_at" property="departureAt" jdbcType="TIMESTAMP"/>
+        <result column="departure_city_code" property="departureCityCode" jdbcType="VARCHAR"/>
+        <result column="departure_city_name" property="departureCityName" jdbcType="VARCHAR"/>
+        <result column="departure_station_code" property="departureStationCode" jdbcType="VARCHAR"/>
+        <result column="departure_station_name" property="departureStationName" jdbcType="VARCHAR"/>
+        <result column="arrival_at" property="arrivalAt" jdbcType="TIMESTAMP"/>
+        <result column="arrival_city_code" property="arrivalCityCode" jdbcType="VARCHAR"/>
+        <result column="arrival_city_name" property="arrivalCityName" jdbcType="VARCHAR"/>
+        <result column="arrival_station_code" property="arrivalStationCode" jdbcType="VARCHAR"/>
+        <result column="arrival_station_name" property="arrivalStationName" jdbcType="VARCHAR"/>
+        <result column="departure_dh_city_code" property="departureDhCityCode" jdbcType="VARCHAR"/>
+        <result column="arrival_dh_city_code" property="arrivalDhCityCode" jdbcType="VARCHAR"/>
+        <result column="seat_class" property="seatClass" jdbcType="VARCHAR"/>
+        <result column="ticket_fee" property="ticketFee" jdbcType="DECIMAL"/>
+        <result column="insurance_fee" property="insuranceFee" jdbcType="DECIMAL"/>
+        <result column="created_at" property="createdAt" jdbcType="TIMESTAMP"/>
+        <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP"/>
+        <result column="app_code" property="appCode" jdbcType="VARCHAR"/>
+        <result column="ticket_service_fee" property="ticketServiceFee" jdbcType="DECIMAL"/>
+    </resultMap>
+    <resultMap id="ResultMapWithBLOBs" type="com.datahub.domain.TrainTicket" extends="BaseResultMap">
+        <result column="passenger" property="passenger" jdbcType="LONGVARCHAR"/>
+    </resultMap>
+
+    <select id="getTrainOrderDetail" resultType="com.datahub.domain.TrainTicket">
+        select *
+        from train_ticket
+        where ent_code = #{entCode,javaType=String}
+          and order_id = #{operationId,javaType=String};
+    </select>
+</mapper>

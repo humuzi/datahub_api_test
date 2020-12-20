@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.datahub.mybatis.mapper.RoleAssignmentMapper" >
+  <resultMap id="BaseResultMap" type="com.datahub.domain.RoleAssignment" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="ent_code" property="entCode" jdbcType="VARCHAR" />
+    <result column="role_code" property="roleCode" jdbcType="VARCHAR" />
+    <result column="assign_type" property="assignType" jdbcType="VARCHAR" />
+    <result column="member_code" property="memberCode" jdbcType="VARCHAR" />
+    <result column="include_child" property="includeChild" jdbcType="BIT" />
+    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="getAdminMembers" resultType="list">
+    select member_code
+    from role_assignment
+    where ent_code = #{entCode,javaType=string}
+      and role_code = #{roleCode,javaType=string};
+  </select>
+</mapper>

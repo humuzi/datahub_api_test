@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.datahub.mybatis.mapper.FlightTicketMapper">
+  <resultMap id="BaseResultMap" type="com.datahub.domain.FlightTicket">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="ent_code" jdbcType="VARCHAR" property="entCode" />
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="operation_id" jdbcType="VARCHAR" property="operationId" />
+    <result column="ticket_no" jdbcType="VARCHAR" property="ticketNo" />
+    <result column="ticket_no_ac" jdbcType="VARCHAR" property="ticketNoAc" />
+    <result column="original_ticket_no" jdbcType="VARCHAR" property="originalTicketNo" />
+    <result column="sequence" jdbcType="VARCHAR" property="sequence" />
+    <result column="flight_no" jdbcType="VARCHAR" property="flightNo" />
+    <result column="is_international_flight" jdbcType="BIT" property="isInternationalFlight" />
+    <result column="aircraft_type" jdbcType="VARCHAR" property="aircraftType" />
+    <result column="airline_name" jdbcType="VARCHAR" property="airlineName" />
+    <result column="airline_code" jdbcType="VARCHAR" property="airlineCode" />
+    <result column="apply_change_at" jdbcType="TIMESTAMP" property="applyChangeAt" />
+    <result column="changed_at" jdbcType="TIMESTAMP" property="changedAt" />
+    <result column="refund_at" jdbcType="TIMESTAMP" property="refundAt" />
+    <result column="departure_at" jdbcType="TIMESTAMP" property="departureAt" />
+    <result column="departure_timezone" jdbcType="VARCHAR" property="departureTimezone" />
+    <result column="departure_city_code" jdbcType="VARCHAR" property="departureCityCode" />
+    <result column="departure_city_name" jdbcType="VARCHAR" property="departureCityName" />
+    <result column="departure_port_code" jdbcType="VARCHAR" property="departurePortCode" />
+    <result column="departure_port_name" jdbcType="VARCHAR" property="departurePortName" />
+    <result column="arrival_at" jdbcType="TIMESTAMP" property="arrivalAt" />
+    <result column="arrival_timezone" jdbcType="VARCHAR" property="arrivalTimezone" />
+    <result column="arrival_city_code" jdbcType="VARCHAR" property="arrivalCityCode" />
+    <result column="arrival_city_name" jdbcType="VARCHAR" property="arrivalCityName" />
+    <result column="arrival_port_code" jdbcType="VARCHAR" property="arrivalPortCode" />
+    <result column="arrival_port_name" jdbcType="VARCHAR" property="arrivalPortName" />
+    <result column="fly_duration" jdbcType="INTEGER" property="flyDuration" />
+    <result column="departure_dh_city_code" jdbcType="VARCHAR" property="departureDhCityCode" />
+    <result column="arrival_dh_city_code" jdbcType="VARCHAR" property="arrivalDhCityCode" />
+    <result column="cabin" jdbcType="VARCHAR" property="cabin" />
+    <result column="sub_cabin" jdbcType="VARCHAR" property="subCabin" />
+    <result column="ticket_fee" jdbcType="DECIMAL" property="ticketFee" />
+    <result column="standard_ticket_fee" jdbcType="DECIMAL" property="standardTicketFee" />
+    <result column="discount" jdbcType="INTEGER" property="discount" />
+    <result column="insurance_fee" jdbcType="DECIMAL" property="insuranceFee" />
+    <result column="ticket_service_fee" jdbcType="DECIMAL" property="ticketServiceFee" />
+    <result column="tax_fee" jdbcType="DECIMAL" property="taxFee" />
+    <result column="oil_fee" jdbcType="DECIMAL" property="oilFee" />
+    <result column="currency" jdbcType="VARCHAR" property="currency" />
+    <result column="print_no" jdbcType="VARCHAR" property="printNo" />
+    <result column="print_ticket_no" jdbcType="VARCHAR" property="printTicketNo" />
+    <result column="print_amount" jdbcType="DECIMAL" property="printAmount" />
+    <result column="low_flight_no" jdbcType="VARCHAR" property="lowFlightNo" />
+    <result column="low_cabin" jdbcType="VARCHAR" property="lowCabin" />
+    <result column="low_amount" jdbcType="VARCHAR" property="lowAmount" />
+    <result column="low_discount" jdbcType="VARCHAR" property="lowDiscount" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="airline_cabin_name" jdbcType="VARCHAR" property="airlineCabinName" />
+    <result column="app_code" jdbcType="VARCHAR" property="appCode" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.datahub.domain.FlightTicket">
+    <result column="passenger" jdbcType="LONGVARCHAR" property="passenger" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    passenger
+  </sql>
+  <select id="getFlightTicket" resultType="com.datahub.domain.FlightTicket">
+    select * from flight_ticket
+    where ent_code =#{entCode,javaType=string}
+      and app_code =#{appCode,javaType=string}
+      and operation_id = #{operationId,javaType=string};
+  </select>
+</mapper>
